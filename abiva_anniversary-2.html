@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#fff0f5" />
+  <meta name="description" content="A little anniversary surprise made with love for Abiva." />
+  <title>For Abiva 💗 | Our 2nd Anniversary</title>
+  <style>
+    :root {
+      --pink: #ff5f91;
+      --deep: #a51d52;
+      --rose: #ffe0eb;
+      --cream: #fffaf7;
+      --ink: #572b3b;
+      --muted: #936979;
+      --white: #ffffff;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; color: var(--ink);
+      font-family: ui-rounded, "Trebuchet MS", system-ui, -apple-system, sans-serif;
+      background:
+        radial-gradient(circle at 10% 10%, #ffe0ec 0, transparent 28rem),
+        radial-gradient(circle at 90% 35%, #fff0c9 0, transparent 24rem),
+        var(--cream);
+      overflow-x: hidden;
+    }
+    button { font: inherit; cursor: pointer; }
+    .wrap { width: min(100% - 28px, 980px); margin: 0 auto; }
+    .topline { text-align: center; padding: 24px 0 8px; color: var(--deep); font-size: .9rem; letter-spacing: .12em; text-transform: uppercase; font-weight: 800; }
+    .hero { min-height: 82vh; display: grid; place-items: center; text-align: center; padding: 28px 0 56px; position: relative; }
+    .hero-card { max-width: 700px; width: 100%; padding: clamp(24px, 6vw, 56px); background: rgba(255,255,255,.76); border: 1px solid rgba(255,95,145,.18); border-radius: 34px; box-shadow: 0 20px 70px rgba(165,29,82,.10); position: relative; z-index: 1; }
+    .tiny-label { display: inline-block; padding: 8px 14px; border-radius: 99px; background: #fff0f5; color: var(--deep); font-size: .85rem; font-weight: 800; }
+    h1 { font-size: clamp(2.5rem, 10vw, 5.5rem); line-height: .98; letter-spacing: -.06em; margin: 20px 0 14px; color: var(--deep); }
+    h1 span { color: var(--pink); }
+    .subtitle { max-width: 500px; margin: 0 auto; line-height: 1.7; color: var(--muted); font-size: clamp(1rem, 2.8vw, 1.15rem); }
+    .big-heart { font-size: 3.5rem; display: inline-block; animation: heartbeat 1.5s infinite; filter: drop-shadow(0 8px 12px #ffabc5); }
+    .btn { border: 0; border-radius: 999px; padding: 14px 22px; background: var(--pink); color: white; font-weight: 800; box-shadow: 0 8px 0 #e74c7e; transition: transform .18s, box-shadow .18s; }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 0 #e74c7e; }
+    .btn:active { transform: translateY(4px); box-shadow: 0 4px 0 #e74c7e; }
+    .btn.secondary { color: var(--deep); background: white; box-shadow: 0 6px 0 #f5cad8; border: 1px solid #f7c7d7; }
+    .hero .btn { margin-top: 26px; }
+    .hint { display: block; margin-top: 16px; color: #b17d90; font-size: .82rem; }
+    section { padding: 54px 0; }
+    .section-heading { text-align: center; margin-bottom: 28px; }
+    .eyebrow { color: var(--pink); text-transform: uppercase; letter-spacing: .15em; font-weight: 900; font-size: .78rem; }
+    h2 { margin: 8px 0; font-size: clamp(1.8rem, 6vw, 3rem); letter-spacing: -.04em; color: var(--deep); }
+    .section-intro { color: var(--muted); line-height: 1.7; max-width: 580px; margin: 0 auto; }
+    .letter { max-width: 720px; margin: auto; background: #fff; border-radius: 12px 28px 28px 28px; padding: clamp(24px, 5vw, 44px); box-shadow: 0 16px 50px #9e2c5012; border: 1px solid #ffe0e9; position: relative; }
+    .letter:before { content: "♡"; position: absolute; top: 12px; right: 22px; color: #ffc0d3; font-size: 2.4rem; }
+    .letter p { line-height: 1.9; font-size: 1.03rem; }
+    .signature { font-family: "Brush Script MT", "Segoe Script", cursive; font-size: 1.8rem; color: var(--pink); }
+    .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .photo-card { background: white; padding: 10px 10px 18px; border-radius: 16px; box-shadow: 0 12px 28px #8b3b5310; transform: rotate(var(--tilt)); transition: transform .2s; }
+    .photo-card:hover { transform: rotate(0deg) translateY(-5px); }
+    .photo { height: 230px; border-radius: 10px; overflow: hidden; display: grid; place-items: center; background: linear-gradient(135deg, #ffd6e4, #fff0ca); color: #a34c6a; text-align: center; padding: 12px; }
+    .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .photo .placeholder { font-size: 2.5rem; }
+    .photo-card p { text-align: center; margin: 13px 0 0; color: #8c5267; font-size: .93rem; }
+    .final-card { max-width: 700px; margin: auto; text-align: center; padding: clamp(26px, 6vw, 50px); background: linear-gradient(135deg, #ffedf3, #fff7e9); border: 1px solid #ffd1df; border-radius: 30px; }
+    .hidden-message { display: none; margin-top: 24px; background: white; border-radius: 20px; padding: 22px; line-height: 1.8; animation: pop .45s ease both; }
+    .hidden-message.show { display: block; }
+    footer { padding: 32px 16px 44px; text-align: center; color: #b17d90; font-size: .9rem; }
+    .music-btn { position: fixed; right: 14px; bottom: 14px; z-index: 20; border: 1px solid #ffd0df; background: rgba(255,255,255,.92); color: var(--deep); border-radius: 999px; padding: 12px 16px; box-shadow: 0 6px 24px #7c24421c; font-weight: 800; }
+    .heart { position: fixed; bottom: -40px; pointer-events: none; z-index: 0; animation: floatUp linear forwards; opacity: .75; }
+    .confetti { position: fixed; top: -20px; z-index: 30; pointer-events: none; animation: fall 2.8s linear forwards; }
+    .divider-heart { text-align: center; color: #ff9cba; font-size: 1.3rem; margin-top: 24px; letter-spacing: .5rem; }
+    @keyframes heartbeat { 0%,100% { transform: scale(1); } 12% { transform: scale(1.12); } 24% { transform: scale(1); } 36% { transform: scale(1.08); } }
+    @keyframes floatUp { to { transform: translateY(-110vh) rotate(25deg); opacity: 0; } }
+    @keyframes pop { from { opacity: 0; transform: scale(.92); } to { opacity: 1; transform: scale(1); } }
+    @keyframes fall { to { transform: translateY(110vh) rotate(650deg); opacity: .2; } }
+    @media (max-width: 640px) {
+      .hero { min-height: 78vh; }
+      .gallery { grid-template-columns: 1fr; max-width: 390px; margin: auto; gap: 20px; }
+      .photo { height: 280px; }
+      section { padding: 42px 0; }
+      .photo-card:nth-child(2) { --tilt: 1deg; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <!-- PERSONALIZE: Replace the text and image filenames in this file if you want. -->
+  <div class="topline">A tiny website, made with a lot of love 💌</div>
+  <main>
+    <header class="hero wrap">
+      <div class="hero-card">
+        <div class="big-heart" aria-hidden="true">💗</div>
+        <div><span class="tiny-label">A little surprise for my favourite person</span></div>
+        <h1>Happy 2nd<br><span>Anniversary,</span><br>Abiva!</h1>
+        <p class="subtitle">Two years of memories, smiles, silly moments, and a thousand little reasons to choose you again. Ready for your surprise, pretty girl?</p>
+        <button class="btn" id="openSurprise">Open your surprise 💝</button>
+        <span class="hint">P.S. You might want to keep smiling.</span>
+      </div>
+    </header>
+
+    <section id="letterSection">
+      <div class="wrap">
+        <div class="section-heading">
+          <div class="eyebrow">From my heart to yours</div>
+          <h2>A little love letter 💌</h2>
+          <p class="section-intro">For the girl who makes ordinary days feel a little more special.</p>
+        </div>
+        <article class="letter">
+          <p>My dearest Abiva, 💗</p>
+          <p>Happy second anniversary, my favourite person. Two years with you, and somehow you still give me butterflies. Thank you for the laughs, the little moments, the conversations, and all the memories that have become special just because you were part of them.</p>
+          <p>I don't need every day to be perfect. I just want more days where we can laugh at silly things, support each other through the hard bits, and keep learning how to love each other better. You mean so much to me, more than a webpage could ever fit into words.</p>
+          <p>So here's to our story — to the memories we've made, the ones we're making now, and all the lovely little chapters still waiting for us. If I could choose all over again, I'd still be happy that our paths crossed. 🫶</p>
+          <p>Keep this page as a tiny reminder that you're loved, appreciated, and very, very special to me.</p>
+          <p class="signature">Yours, with all my heart ♡</p>
+        </article>
+        <div class="divider-heart">♡ ♥ ♡</div>
+      </div>
+    </section>
+
+    <section id="memories">
+      <div class="wrap">
+        <div class="section-heading">
+          <div class="eyebrow">Little moments, big feelings</div>
+          <h2>Our memory corner 📸</h2>
+          <p class="section-intro">These are little placeholders for your favourite photos. Add your own pictures to make this page truly yours.</p>
+        </div>
+        <div class="gallery">
+          <div class="photo-card" style="--tilt:-2deg">
+            <div class="photo">
+              <!-- Replace the placeholder div below with: <img src="photo1.jpg" alt="Our favourite memory"> -->
+              <div class="placeholder">📷<br><small>Add photo 1</small></div>
+            </div>
+            <p>One of my favourite memories ♡</p>
+          </div>
+          <div class="photo-card" style="--tilt:2deg">
+            <div class="photo">
+              <!-- Replace the placeholder div below with: <img src="photo2.jpg" alt="A happy moment together"> -->
+              <div class="placeholder">🌷<br><small>Add photo 2</small></div>
+            </div>
+            <p>That smile I could never forget</p>
+          </div>
+          <div class="photo-card" style="--tilt:-1deg">
+            <div class="photo">
+              <!-- Replace the placeholder div below with: <img src="photo3.jpg" alt="A special day together"> -->
+              <div class="placeholder">💞<br><small>Add photo 3</small></div>
+            </div>
+            <p>And many more memories to come</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="final">
+      <div class="wrap">
+        <div class="final-card">
+          <div class="big-heart" aria-hidden="true">🎁</div>
+          <div class="eyebrow">One last VERY important question...</div>
+          <h2>Abiva, will you go on an anniversary date with me? 🥹💗</h2>
+          <p class="section-intro">Dress cute, bring that pretty smile, and let me plan a little us-time. Sooo… what's your answer? 👀</p>
+          <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:24px">
+            <button class="btn" id="yesDate">YESSS 💖</button>
+            <button class="btn secondary" id="alsoYesDate">YES, OBVIOUSLY 🙄💕</button>
+          </div>
+          <div class="hidden-message" id="finalMessage">
+            <h2 style="font-size:1.7rem">YAYYYY, IT'S A DATE! 🎉💗</h2>
+            <p>Hehe, I knew you'd pick the correct answer. 😌💕</p>
+            <p>Happy second anniversary, my favourite person. I'll plan something sweet for us — you just bring yourself and that smile I adore. 🫶</p>
+            <p><strong>Two years down, more cute dates to go. I love our little story, Abiva. 💌</strong></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>Made for Abiva, with love and a few too many hearts 💗<br>Happy 2nd Anniversary!</footer>
+
+  <!-- Optional: put a music file named "music.mp3" next to index.html, or leave it as-is. -->
+  <audio id="bgMusic" src="music.mp3" loop preload="none"></audio>
+  <button class="music-btn" id="musicToggle" aria-label="Play or pause background music">♫ Play music</button>
+
+  <script>
+    const openButton = document.getElementById('openSurprise');
+    const letterSection = document.getElementById('letterSection');
+    const finalMessage = document.getElementById('finalMessage');
+    const music = document.getElementById('bgMusic');
+    const musicButton = document.getElementById('musicToggle');
+    let musicOn = false;
+
+    function makeHeart() {
+      const heart = document.createElement('span');
+      heart.className = 'heart';
+      heart.textContent = ['💗', '💕', '💖', '♡', '💞'][Math.floor(Math.random() * 5)];
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.fontSize = (14 + Math.random() * 22) + 'px';
+      heart.style.animationDuration = (5 + Math.random() * 5) + 's';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 10500);
+    }
+    setInterval(makeHeart, 650);
+
+    function celebrate() {
+      const symbols = ['💗', '💖', '💕', '✨', '🌸', '♡'];
+      for (let i = 0; i < 34; i++) {
+        const piece = document.createElement('span');
+        piece.className = 'confetti';
+        piece.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+        piece.style.left = Math.random() * 100 + 'vw';
+        piece.style.animationDelay = (Math.random() * .7) + 's';
+        piece.style.fontSize = (15 + Math.random() * 18) + 'px';
+        document.body.appendChild(piece);
+        setTimeout(() => piece.remove(), 4000);
+      }
+    }
+
+    openButton.addEventListener('click', () => {
+      celebrate();
+      letterSection.scrollIntoView({ behavior: 'smooth' });
+    });
+    function acceptDate() {
+      finalMessage.classList.add('show');
+      document.getElementById('yesDate').textContent = 'DATE CONFIRMED 💖';
+      document.getElementById('alsoYesDate').textContent = 'DATE CONFIRMED 💖';
+      celebrate();
+    }
+    document.getElementById('yesDate').addEventListener('click', acceptDate);
+    document.getElementById('alsoYesDate').addEventListener('click', acceptDate);
+    musicButton.addEventListener('click', async () => {
+      if (!musicOn) {
+        try {
+          await music.play();
+          musicOn = true;
+          musicButton.textContent = '♫ Pause music';
+        } catch (error) {
+          musicButton.textContent = '♫ Add music.mp3 first';
+        }
+      } else {
+        music.pause();
+        musicOn = false;
+        musicButton.textContent = '♫ Play music';
+      }
+    });
+  </script>
+</body>
+</html>
